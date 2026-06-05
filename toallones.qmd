@@ -1,0 +1,19 @@
+---
+title: ""
+---
+
+::: hero-container
+::: hero-left
+# Cobertura Total y Confort a Gran Escala
+
+Descubre nuestra línea exclusiva de toallones premium. Diseñados con dimensiones generosas y tejidos de felpa de alto gramaje que te envuelven por completo, brindándote un secado rápido y una suavidad insuperable.
+
+::: hero-buttons
+[Ver Toallones](toallones.qmd){.btn-gold-filled} [Contáctanos](https://wa.me/573000000000){.btn-gold-outlined}
+:::
+:::
+
+::: hero-right
+![](toallones.jpg){.hero-image width="1146"}
+:::
+:::

@@ -1,0 +1,19 @@
+---
+title: ""
+---
+
+::: hero-container
+::: hero-left
+# Tradición, Diseño y Distinción en tu Cama
+
+Descubre la sofisticación de nuestras colchas españolas premium. Piezas exclusivas con tejidos texturizados de alta calidad que visten tu habitación con un estilo imponente, fresco y atemporal.
+
+::: hero-buttons
+[Ver Colchas](colchas.qmd){.btn-gold-filled} [Contáctanos](https://wa.me/573000000000){.btn-gold-outlined}
+:::
+:::
+
+::: hero-right
+![](hero-colchas-espanolas.jpg){.hero-image}
+:::
+:::

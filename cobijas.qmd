@@ -1,0 +1,19 @@
+---
+title: ""
+---
+
+::: hero-container
+::: hero-left
+# El Refugio Perfecto de Calidez y Confort
+
+Descubre nuestra variada colección de cobijas premium. El complemento ideal para tus días de descanso, diseñadas con texturas ultrasuaves y materiales térmicos que transforman cualquier espacio en un nido de bienestar.
+
+::: hero-buttons
+[Ver Cobijas](cobijas.qmd){.btn-gold-filled} [Contáctanos](https://wa.me/573000000000){.btn-gold-outlined}
+:::
+:::
+
+::: hero-right
+![](hero-cobijas.jpg){.hero-image}
+:::
+:::

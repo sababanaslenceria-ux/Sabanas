@@ -1,0 +1,486 @@
+# ==========================================================
+# 0. PAQUETES
+# ==========================================================
+
+library(forecast)
+library(tseries)
+library(lmtest)
+library(FinTS)
+library(strucchange)
+library(TSA)
+library(ggplot2)
+library(gridExtra)
+library(car)
+
+# ==========================================================
+# DATOS
+# ==========================================================
+
+data("AirPassengers")
+
+serie_original <- AirPassengers
+serie_est <- diff(log(serie_original))
+
+# ==========================================================
+# MODELO ARIMA ESTACIONAL AUTOMÁTICO
+# ==========================================================
+
+modelo_arima <- auto.arima(
+  serie_est,
+  seasonal = TRUE,
+  stepwise = FALSE,
+  approximation = FALSE
+)
+
+summary(modelo_arima)
+
+res <- residuals(modelo_arima)
+
+cat("\nModelo seleccionado:\n")
+print(arimaorder(modelo_arima))
+
+# ==========================================================
+# 1. MEDIA CERO
+# ==========================================================
+
+#Gráfico serie residuales
+par(mfrow=c(1,1))
+
+plot(res,
+     type="l",
+     main="Residuales",
+     ylab="Residuo")
+abline(h=0,col="red",lwd=2)
+
+#Gráfico CUSUM
+cusum_proc <- efp(
+  res ~ 1,
+  type = "Rec-CUSUM"
+)
+
+plot(cusum_proc,
+     main="Carta CUSUM")
+
+#Prueba de media cero
+t.test(res, mu = 0)
+
+# ==========================================================
+# 2. HETEROSCEDASTICIDAD
+# ==========================================================
+
+#Gráfico de serie de residuales al cuadrado
+res2 <- res^2
+
+plot(res2,
+     type="l",
+     main="Residuales al cuadrado",
+     ylab=expression(r[t]^2))
+
+#Carta CUSUMSQ
+cusumsq <- function(model,
+                    main = "CUSUM of Squares",
+                    alpha = 0.05) {
+  
+  if (!requireNamespace("strucchange", quietly = TRUE))
+    stop("Package 'strucchange' is required")
+  
+  # Recursive residuals
+  w <- strucchange::recresid(model)
+  
+  # CUSUMSQ process
+  S <- cumsum(w^2) / sum(w^2)
+  
+  n <- length(S)
+  t <- seq_len(n) / n
+  
+  # Approximate 95% confidence bands
+  # Based on Brownian bridge approximation
+  k <- 0.948   # approximately 5% level
+  
+  lower <- t - k * sqrt(t * (1 - t))
+  upper <- t + k * sqrt(t * (1 - t))
+  
+  lower <- pmax(lower, 0)
+  upper <- pmin(upper, 1)
+  
+  plot(t, S,
+       type = "l",
+       lwd = 2,
+       ylim = c(0, 1),
+       xlab = "Fraction of sample",
+       ylab = "CUSUMSQ",
+       main = main,
+       col="red")
+  
+  lines(t, lower, lty = 2)
+  lines(t, upper, lty = 2)
+  
+  abline(h = c(0,1), col = "grey80")
+  
+  out <- list(
+    process = S,
+    lower = lower,
+    upper = upper,
+    crossing = any(S < lower | S > upper)
+  )
+  
+  invisible(out)
+}
+
+cusumsq(lm(res ~ 1))
+
+#FAC de residuales al cuadrado
+acf(
+  res2,
+  main="FAC de residuales al cuadrado"
+)
+
+#Prueba F de igualdad de varianzas (asumiendo independencia y normalidad)
+n <- length(res)
+
+grupo1 <- res[1:floor(n/2)]
+grupo2 <- res[(floor(n/2)+1):n]
+
+var.test(grupo1, grupo2)
+
+#Test de McLeod-Li
+McLeod.Li.test(
+  y = res
+)
+
+# ==========================================================
+# 3. CORRELACIÓN LINEAL
+# ==========================================================
+
+#FAC y FACP de los residuales
+par(mfrow=c(1,2))
+
+acf(
+  res,
+  main="FAC residuales"
+)
+
+pacf(
+  res,
+  main="FACP residuales"
+)
+par(mfrow=c(1,1))
+
+#Test de Durbin-Watson
+dwtest(
+  res ~ seq_along(res)
+)
+
+#Test de Box Pierce
+plot_box_test <- function(x,
+                          lag.max = 30,
+                          fitdf = 0,
+                          type = c("Ljung-Box", "Box-Pierce"),
+                          alpha = 0.05,
+                          pch = 19) {
+  
+  type <- match.arg(type)
+  
+  pvals <- sapply(seq_len(lag.max), function(k) {
+    
+    # Skip lags that are not valid after df adjustment
+    if (k <= fitdf) return(NA)
+    
+    Box.test(
+      x,
+      lag = k,
+      type = type,
+      fitdf = fitdf
+    )$p.value
+  })
+  
+  plot(
+    seq_len(lag.max),
+    pvals,
+    type = "b",
+    pch = pch,
+    ylim = c(0, 1),
+    xlab = "Lag",
+    ylab = "p-value",
+    main = paste(type, "Test Across Lags")
+  )
+  
+  abline(h = alpha, lty = 2, col = "red")
+  
+  legend(
+    "topright",
+    legend = paste0("α = ", alpha),
+    lty = 2,
+    col = "red",
+    bty = "n"
+  )
+  
+  invisible(
+    data.frame(
+      lag = seq_len(lag.max),
+      p.value = pvals
+    )
+  )
+}
+
+k <- length(coef(modelo_arima))
+
+plot_box_test(
+  x=res,
+  lag.max = 20,
+  fitdf = k,
+  type = "Box-Pierce"
+)
+
+#Test de Ljung Box
+plot_box_test(
+  x=res,
+  lag.max = 20,
+  fitdf = k,
+  type = "Ljung-Box"
+)
+
+# ==========================================================
+# 4. NORMALIDAD
+# ==========================================================
+
+#Histograma
+hist(
+  res,
+  probability = TRUE,
+  main="Histograma de residuales"
+)
+
+lines(
+  density(res),
+  lwd=2
+)
+
+#QQ plot
+qqPlot(
+  res,
+  distribution = "norm",
+  envelope = 0.95,
+  col = "black",
+  pch = 19,
+  cex = 0.7,
+  main = "Normal Q-Q Plot of Residuals"
+)
+
+#Prueba de J-B
+jarque.bera.test(res)
+
+# ==========================================================
+# 5. INDEPENDENCIA
+# ==========================================================
+
+runs.test(
+  factor(sign(res))
+)
+
+# ==========================================================
+# 6. ATÍPICOS
+# ==========================================================
+
+#Residuales estandarizados
+res_std <- rstandard(
+  lm(res ~ 1)
+)
+
+plot(
+  res_std,
+  type="h",
+  main="Residuales estandarizados"
+)
+
+abline(h=c(-3,3),
+       col="red",
+       lty=2)
+
+which(abs(res_std) > 3)
+
+#También puede usarse de Hyndman
+tsoutliers(serie_est)
+
+# ==========================================================
+# 7. RAÍCES (no comunes, causalidad e invertibilidad)
+# ==========================================================
+
+summary(modelo_arima)
+phi<-coef(modelo_arima)[grep("^ar", names(coef(modelo_arima)))]
+Phi<-coef(modelo_arima)[grep("^sar", names(coef(modelo_arima)))]
+theta<-coef(modelo_arima)[grep("^ma", names(coef(modelo_arima)))]
+Theta<-coef(modelo_arima)[grep("^sma", names(coef(modelo_arima)))]
+
+ar_roots <- polyroot(c(1, -phi)); ar_roots
+sar_roots <- polyroot(c(1, -Phi)); sar_roots
+ma_roots <- polyroot(c(1, theta)); ma_roots
+sma_roots <- polyroot(c(1, Theta)); sma_roots
+
+autoplot(modelo_arima) #de la librería forecast
+
+# ==========================================================
+# 8. CAMBIOS ESTRUCTURALES
+# ==========================================================
+
+#partición de la serie en dos partes
+
+n <- length(serie_est)
+
+serie1 <- window(
+  serie_est,
+  end = time(serie_est)[floor(n/2)]
+)
+
+serie2 <- window(
+  serie_est,
+  start = time(serie_est)[floor(n/2)+1]
+)
+
+#Ajuste de dos modelos con la misma estructura
+ord <- arimaorder(modelo_arima)
+
+fit1 <- Arima(
+  serie1,
+  order = ord[1:3],
+  seasonal = list(
+    order = ord[4:6],
+    period = frequency(serie_est)
+  )
+)
+
+fit2 <- Arima(
+  serie2,
+  order = ord[1:3],
+  seasonal = list(
+    order = ord[4:6],
+    period = frequency(serie_est)
+  )
+)
+
+#Comparación de parámetros
+coef1 <- coef(fit1)
+coef2 <- coef(fit2)
+
+tabla_param <- data.frame(
+  Parametro = names(coef1),
+  Periodo1 = coef1,
+  Periodo2 = coef2,
+  Diferencia = coef1 - coef2
+)
+
+tabla_param
+
+#Test de cambio estructural
+
+LR <- 2 * (
+  logLik(fit1)+logLik(fit2) -
+    logLik(modelo_arima)
+)
+
+LR
+
+# ----------------------------------------------------------
+# p-valor
+# gl = número de restricciones
+# ----------------------------------------------------------
+
+pvalor <- 1 - pchisq(LR, df = k-1)
+
+pvalor
+
+
+# ==========================================================
+# 9. Diebold Mariano y encompassing
+# ==========================================================
+
+# Pronóstico ventana expansible (rolling origin) sin recalibración
+n0 <- 50
+h <- 1
+
+train0 <- window(
+  serie_est,
+  end = time(serie_est)[n0]
+)
+
+# Ajuste inicial único
+modelo_arima0 <- auto.arima(train0)
+
+modelo_ets0 <- ets(train0)
+
+e_arima <- c()
+e_ets <- c()
+
+#==================================================
+# Rolling origin sin recalibración
+#==================================================
+
+for(i in n0:(length(serie_est)-h))
+{
+  
+  train <- window(
+    serie_est,
+    end = time(serie_est)[i]
+  )
+  
+  test <- serie_est[i+h]
+  
+  # Actualización sin reestimar parámetros
+  fitA <- Arima(
+    train,
+    model = modelo_arima0
+  )
+  
+  fitE <- ets(
+    train,
+    model = modelo_ets0,
+    use.initial.values = TRUE
+  )
+  
+  predA <- forecast(fitA,h=1)$mean
+  predE <- forecast(fitE,h=1)$mean
+  
+  e_arima <- c(e_arima, test - predA)
+  e_ets   <- c(e_ets, test - predE)
+}
+
+#Diebold-Mariano
+dm.test(
+  e_arima,
+  e_ets,
+  alternative="two.sided",
+  h=1,
+  power=2
+)
+
+dm.test(
+  e_arima,
+  e_ets,
+  alternative="less",
+  h=1,
+  power=2
+) #Menores pérdidas cuadráticas promedio en modelo ARIMA
+
+#Encompassing
+actual <- serie_est[(50+h):length(serie_est)]
+
+pred_arima <- actual - e_arima
+pred_ets   <- actual - e_ets
+
+modelo_enc <- lm(
+  actual ~ pred_arima + pred_ets
+)
+
+summary(modelo_enc)
+
+linearHypothesis(
+  modelo_enc,
+  "pred_ets = 0"
+)
+
+linearHypothesis(
+  modelo_enc,
+  "pred_arima = 0"
+)
+
+

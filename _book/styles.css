@@ -1,0 +1,142 @@
+/* ==========================================================================
+   JA LENCERÍA PARA EL HOGAR - EMERALD & GOLD LUXURY EDITION
+   ========================================================================== */
+
+/* IMPORTACIÓN DE FUENTES PREMIUM (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* 1. CONFIGURACIÓN GENERAL - LIENZO DE LUJO RADIANTE */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: #2B302C;              /* Un gris oscuro con un toque sutil de verde pino */
+  background-color: #FFFFFF !important; /* Centro de la página blanco óptico impecable */
+  line-height: 1.8;
+}
+
+/* Forzar fondo blanco en toda el área central */
+.page-columns, main, #quarto-document-content, .quarto-container {
+  background-color: #FFFFFF !important;
+}
+
+/* Títulos principales (Estilo joyería / alta costura) */
+h1, h2, h3, .title {
+  font-family: 'Playfair Display', serif;
+  color: #0B3022 !important;   /* VERDE ESMERALDA PROFUNDO */
+  font-weight: 400 !important;
+  letter-spacing: 1.5px;
+  margin-top: 2rem;
+  border-bottom: none !important;
+}
+
+/* 2. MENÚ LATERAL IZQUIERDO (COLOR VERDE ESMERALDA SPA) */
+#quarto-sidebar, .sidebar, nav.sidebar {
+  background-color: #09241B !important; /* VERDE ESMERALDA OSCURO PREMIUM (Fondo envolvente) */
+  border-right: none !important;
+  padding-top: 35px;
+}
+
+/* Título de la tienda en la esquina superior izquierda */
+.sidebar-title, .sidebar-title a, .sidebar-header {
+  font-family: 'Playfair Display', serif;
+  color: #D4AF37 !important;   /* ORO BRILLANTE METÁLICO */
+  font-weight: 500 !important;
+  font-size: 1.25rem !important;
+  letter-spacing: 2.5px !important;
+  text-transform: uppercase;
+}
+
+/* Buscador adaptado al look esmeralda */
+#quarto-search .typeahead, input.form-control {
+  border: 1px solid #143D30 !important;
+  border-radius: 20px !important;
+  background-color: #0C2E23 !important;
+  color: #FFFFFF !important;
+}
+
+/* Lista de productos del menú izquierdo */
+#quarto-sidebar .sidebar-item a, .sidebar a, .nav-list a {
+  color: #A3BEB5 !important;    /* Un verde salvia clarito, súper elegante sobre el fondo oscuro */
+  font-weight: 400 !important;
+  font-size: 0.9rem !important;
+  text-decoration: none !important;
+  padding: 8px 16px !important;
+  margin-bottom: 4px;
+  display: block;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+/* PRODUCTO ACTIVO (El seleccionado, ej: ¿Quiénes Somos?) */
+#quarto-sidebar .sidebar-item a.active, .sidebar a.active, .nav-list a.active {
+  color: #09241B !important;    /* Texto oscuro para contrastar con el botón */
+  background-color: #D4AF37 !important; /* BOTÓN EN ORO METÁLICO (Resalta con un poder increíble) */
+  font-weight: 500 !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); /* Destello sutil de oro */
+}
+
+/* Efecto al pasar el mouse por encima de los productos */
+#quarto-sidebar a:hover, .sidebar a:hover {
+  color: #FFFFFF !important;
+  background-color: #11382C !important; /* Brillo verde esmeralda medio */
+  padding-left: 20px !important;
+}
+
+/* 3. TABLA DE CONTENIDOS DERECHA (Table of Contents en Oro Viejo) */
+.table-of-contents {
+  border-left: 1px solid #ECEFEF !important;
+}
+
+/* Título superior de la derecha */
+#toc-title {
+  font-family: 'Montserrat', sans-serif;
+  color: #0B3022 !important;    /* Título derecho en Esmeralda */
+  font-size: 0.82rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Enlaces del menú de la derecha */
+.table-of-contents .nav-link {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem !important;
+  color: #70807A !important;    /* Gris verdoso suave */
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
+
+/* El link derecho que está activo o cuando pasas el mouse */
+.table-of-contents .nav-link.active, 
+.table-of-contents .nav-link:hover {
+  color: #D4AF37 !important;    /* Cambia a Dorado al seleccionarse */
+  background-color: transparent !important;
+  border-left: 2px solid #D4AF37 !important; /* Línea guía dorada */
+  padding-left: 10px !important;
+}
+
+/* 4. BOTONES DE NAVEGACIÓN INFERIOR (Abajo de la página) */
+.page-navigation {
+  border-top: 1px solid #ECEFEF !important;
+  padding-top: 20px;
+}
+.page-navigation a {
+  font-family: 'Montserrat', sans-serif;
+  color: #70807A !important;
+}
+.page-navigation a:hover {
+  color: #0B3022 !important;   /* Al pasar el mouse cambia a Esmeralda */
+}
+
+/* ==========================================================================
+   MANTENER EL MENÚ TOTALMENTE CERRADO AL INICIO
+   ========================================================================== */
+#quarto-sidebar .sidebar-item-container + .collapse:not(.show),
+#quarto-sidebar .sidebar-section + .collapse:not(.show),
+#quarto-sidebar ul.collapse:not(.show) {
+  display: none !important;
+}
+#quarto-sidebar .sidebar-item-toggle[aria-expanded="false"] + .collapse,
+#quarto-sidebar .sidebar-item-toggle[aria-expanded="false"] ~ ul {
+  display: none !important;
+}

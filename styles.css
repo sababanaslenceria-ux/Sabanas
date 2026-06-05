@@ -1,0 +1,141 @@
+
+
+/* ==========================================================================
+   JA LENCERÍA - ESTILO LANDING PAGE PREMIUM (INSPIRACIÓN R-LADIES)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #FFFFFF !important;
+  color: #2B302C;
+  overflow-x: hidden;
+}
+
+/* Ocultar barras laterales por completo */
+#quarto-sidebar, .sidebar, nav.sidebar, .col-sidebar-right, #quarto-margin-sidebar {
+  display: none !important;
+  width: 0px !important;
+}
+
+/* Hacer que el contenedor ocupe toda la pantalla de forma fluida */
+.page-columns .page-rows-contents {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+main.content {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 40px 20px !important;
+}
+
+/* MENÚ SUPERIOR */
+.navbar {
+  border-bottom: 1px solid #F5EFE6 !important;
+  padding: 15px 0;
+}
+.navbar-title {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px;
+  color: #04291B !important;
+}
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #574F46 !important;
+}
+.navbar-nav .nav-link:hover {
+  color: #EFBF04 !important;
+}
+
+/* CONTENEDOR DE DOS COLUMNAS DE BIENVENIDA */
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+  min-height: 75vh;
+  padding: 20px 0;
+}
+
+@media (min-width: 768px) {
+  .hero-container {
+    grid-template-columns: 1.1fr 0.9fr; /* Izquierda un poco más ancha */
+  }
+}
+
+/* COLUMNA IZQUIERDA (Textos) */
+.hero-left h1 {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 3rem !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  color: #1A1A1A !important;
+  margin-bottom: 25px;
+  letter-spacing: -0.5px;
+}
+
+.hero-left p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555555;
+  margin-bottom: 35px;
+  font-weight: 300;
+}
+
+/* BOTONES ESTILO PREMIUM */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Botón Dorado Lleno (Como el morado de R-Ladies) */
+.btn-gold-filled {
+  display: inline-block;
+  background-color: #EFBF04 !important;
+  color: #1A1A1A !important;
+  font-weight: 500;
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(239, 191, 4, 0.2);
+}
+.btn-gold-filled:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 191, 4, 0.35);
+}
+
+/* Botón Dorado con Borde (Como el botón blanco/morado de R-Ladies) */
+.btn-gold-outlined {
+  display: inline-block;
+  background-color: transparent !important;
+  color: #EFBF04 !important;
+  font-weight: 500;
+  padding: 14px 30px;
+  border: 2px solid #EFBF04 !important;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+.btn-gold-outlined:hover {
+  background-color: #EFBF04 !important;
+  color: #1A1A1A !important;
+  transform: translateY(-2px);
+}
+
+/* COLUMNA DERECHA (La Imagen) */
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 24px; /* Bordes redondeados elegantes */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  object-fit: cover;
+}

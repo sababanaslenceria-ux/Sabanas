@@ -1,0 +1,19 @@
+---
+title: ""
+---
+
+::: hero-container
+::: hero-left
+# Máxima Suavidad y Calidez para tus Noches
+
+Descubre nuestra exclusiva colección de cobijas piel de conejo. Diseños extrasuaves y livianos, perfectos para envolverte en un abrazo de confort absoluto y darle un toque de elegancia a tu cama.
+
+::: hero-buttons
+[Ver Cobijas](cobijas.qmd){.btn-gold-filled} [Contáctanos](https://wa.me/573000000000){.btn-gold-outlined}
+:::
+:::
+
+::: hero-right
+![](hero-cobijas-conejo.jpg){.hero-image}
+:::
+:::

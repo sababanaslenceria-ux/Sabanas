@@ -1,0 +1,314 @@
+---
+title: "Exclusividad en Cada Detalle"
+---
+
+<style>
+/* 1. IMPORTAR LA FUENTE DE GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* 2. APLICAR LA FUENTE A TODOS LOS TÍTULOS */
+h1, h2, h3, h4, h5, h6, .product-title {
+    font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+/* Contenedor principal del catálogo */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Tarjeta de cada producto */
+.product-card {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Efecto Hover en el producto (igual al de tu Home) */
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 12px 25px rgba(197, 160, 89, 0.35);
+}
+
+/* Contenedor de la imagen del producto */
+.product-image-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Detalles del producto (Texto) */
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-category {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8c8c8c;
+    margin-bottom: 5px;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
+    color: #333333;
+}
+
+.product-price {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #C5A059; /* Tu dorado característico */
+    margin-bottom: 15px;
+}
+
+/* Centrar los botones del catálogo */
+.product-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+</style>
+
+
+
+Explora nuestras líneas de lencería de hogar premium. Diseños confeccionados con los más altos estándares de calidad para brindarte una experiencia de suavidad y confort inigualable.
+
+---
+
+::: catalog-grid
+
+::: product-card
+::: product-image-wrapper
+![](producto-sabanas.jpeg){.product-image}
+:::
+::: product-info
+::: product-category
+Dormitorio
+:::
+### Juego de Sábanas Satín
+
+Disfruta de la suavidad del algodón egipcio con un acabado satinado brillante.
+
+::: product-price
+
+:::
+::: product-actions
+[Ver Detalles](sabanas.qmd){.btn-gold-outlined} [Comprar](https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20Juego%20de%20Sábanas%20Satín){.btn-gold-filled}
+:::
+:::
+:::
+
+::: product-card
+::: product-image-wrapper
+![](producto-edredon.jpeg){.product-image}
+:::
+::: product-info
+::: product-category
+Dormitorio
+:::
+### Edredón Plumón Premium
+
+El equilibrio perfecto entre ligereza y el abrigo ideal para tus noches.
+
+::: product-price
+
+:::
+::: product-actions
+[Ver Detalles](detalles-edredon.qmd){.btn-gold-outlined} [Comprar](https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20Edredón%20Plumón%20Premium){.btn-gold-filled}
+:::
+:::
+:::
+
+::: product-card
+::: product-image-wrapper
+![](producto-toallas.jpeg){.product-image}
+:::
+::: product-info
+::: product-category
+Baño
+:::
+### Kit de Toallas de Lujo
+
+Máxima absorción y suavidad texturizada para transformar tu baño en un spa.
+
+::: product-price
+:::
+::: product-actions
+[Ver Detalles](kit-toallas.qmd){.btn-gold-outlined} [Comprar](https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20Kit%20de%20Toallas%20de%20Lujo){.btn-gold-filled}
+:::
+:::
+:::
+
+::: product-card
+::: product-image-wrapper
+![](producto-toallas-individuales.jpeg){.product-image}
+:::
+::: product-info
+::: product-category
+Baño
+:::
+### Toallas de Algodón Premium
+
+Variedad de tamaños confeccionados en una selecta mezcla de algodón y poliéster de alta durabilidad.
+
+::: product-price
+
+:::
+::: product-actions
+[Ver Detalles](tipotoallas.qmd){.btn-gold-outlined} [Comprar](https://wa.me/573229428653?text=Hola,%20me%20interesa%20las%20Toallas%20de%20Algodón){.btn-gold-filled}
+:::
+:::
+:::
+
+::: product-card
+::: product-image-wrapper
+![](producto-toallones.jpeg){.product-image}
+:::
+::: product-info
+::: product-category
+Baño
+:::
+### Toallones de Cuerpo Entero
+
+Envuélvete en la máxima comodidad con toallones de gran formato y secado ultra rápido.
+
+::: product-price
+
+:::
+::: product-actions
+[Ver Detalles](toallones.qmd){.btn-gold-outlined} [Comprar](https://wa.me/573229428653?text=Hola,%20me%20interesa%20los%20Toallones%20de%20Cuerpo%20Entero){.btn-gold-filled}
+:::
+:::
+:::
+
+::: product-card
+::: product-image-wrapper
+![](producto-protector.jpeg){.product-image}
+:::
+::: product-info
+::: product-category
+Dormitorio
+:::
+### Protector de Colchón Acolchado
+
+Protección impermeable y acolchada que prolonga la vida de tu colchón sin perder suavidad.
+
+::: product-price
+
+:::
+::: product-actions
+[Ver Detalles](protector.qmd){.btn-gold-outlined} [Comprar](https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20Protector%20de%20Colchón){.btn-gold-filled}
+:::
+:::
+:::
+
+::: product-card
+::: product-image-wrapper
+![](producto-velos.jpeg){.product-image}
+:::
+::: product-info
+::: product-category
+Dormitorio
+:::
+### Velos de Cortina Elegantes
+
+Añade un toque de calidez y privacidad a tus espacios permitiendo una entrada de luz perfecta.
+
+::: product-price
+
+:::
+::: product-actions
+[Ver Detalles](velos.qmd){.btn-gold-outlined} [Comprar](https://wa.me/573229428653?text=Hola,%20me%20interesa%20los%20Velos%20de%20Cortina){.btn-gold-filled}
+:::
+:::
+:::
+
+::: product-card
+::: product-image-wrapper
+![](producto-colchas.jpeg){.product-image}
+:::
+::: product-info
+::: product-category
+Dormitorio
+:::
+### Colchas Españolas
+
+Diseños sofisticados y texturas clásicas que visten tu cama con el auténtico estilo europeo.
+
+::: product-price
+
+:::
+::: product-actions
+[Ver Detalles](colchasespanolas.qmd){.btn-gold-outlined} [Comprar](https://wa.me/573229428653?text=Hola,%20me%20interesa%20las%20Colchas%20Españolas){.btn-gold-filled}
+:::
+:::
+:::
+
+::: product-card
+::: product-image-wrapper
+![](producto-cobijas.jpeg){.product-image}
+:::
+::: product-info
+::: product-category
+Dormitorio
+:::
+### Cobijas Térmicas Extra Suaves
+
+Textura térmica ultra abrigada, ideal para tardes de descanso y noches frías.
+
+::: product-price
+
+:::
+::: product-actions
+[Ver Detalles](cobijas.qmd){.btn-gold-outlined} [Comprar](https://wa.me/573229428653?text=Hola,%20me%20interesa%20las%20Cobijas%20Térmicas){.btn-gold-filled}
+:::
+:::
+:::
+
+::: product-card
+::: product-image-wrapper
+![](producto-almohadas.jpeg){.product-image}
+:::
+::: product-info
+::: product-category
+Dormitorio
+:::
+### Almohadas Ergonómicas Premium
+
+Soporte ideal para cuello y cabeza que garantiza un descanso reparador y libre de estrés.
+
+::: product-price
+
+:::
+::: product-actions
+[Ver Detalles](almohadas.qmd){.btn-gold-outlined} [Comprar](https://wa.me/573229428653?text=Hola,%20me%20interesa%20las%20Almohadas%20Premium){.btn-gold-filled}
+:::
+:::
+:::
+
+:::
+
+
+
+---
+
+### ¿Buscas algo a medida o un diseño personalizado?
+Si deseas dimensiones especiales o asesoría en la decoración de tus espacios, nuestro equipo está listo para ayudarte.
+
+[Contactar a un Asesor](https://wa.me/573000000000){.btn-gold-filled}

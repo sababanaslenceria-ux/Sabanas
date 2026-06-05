@@ -1,0 +1,19 @@
+---
+title: ""
+---
+
+::: hero-container
+::: hero-left
+# La Suavidad Impecable que tu Piel Merece
+
+Descubre nuestra colección de sábanas premium de alto cilindraje de hilos. Diseñadas para ofrecerte una frescura insuperable, una textura sedosa y la máxima durabilidad noche tras noche.
+
+::: hero-buttons
+[Ver Sábanas](sabanas.qmd){.btn-gold-filled} [Contáctanos](https://wa.me/573000000000){.btn-gold-outlined}
+:::
+:::
+
+::: hero-right
+![](hero-sabanas.jpg){.hero-image}
+:::
+:::
