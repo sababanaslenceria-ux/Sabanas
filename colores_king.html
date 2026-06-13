@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>colores_protector_sencilla – JA LENCERÍA</title>
+<title>colores_king – JA LENCERÍA</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -141,62 +141,129 @@ ul.task-list li input[type="checkbox"] {
 <section id="escoge-tu-color-favorito" class="level1 text-center">
 <h1 class="text-center">Escoge tu color favorito</h1>
 <style>
-/* 1. FUENTE PREMIUM */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght=400;600;700&display=swap');
+/* 1. IMPORTAR LA FUENTE DE GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-h1, h3, .text-center {
+/* 2. APLICAR LA FUENTE A TODOS LOS TÍTULOS */
+h1, h2, h3, h4, h5, h6, .product-title {
     font-family: 'Playfair Display', Georgia, serif !important;
 }
 
-/* 2. CUADRÍCULA ANTIFALLOS (FOTOS ALINEADAS) */
-.galeria-colores {
-    text-align: center !important;
-    white-space: nowrap !important; /* Fuerza a las fotos a ir a la derecha si caben */
-    overflow-x: auto !important;   /* Si la pantalla es chica, permite deslizar a la derecha */
-    padding: 15px 5px;
-    margin: 0 auto;
-    max-width: 600px;
+/* Contenedor principal del catálogo */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
 }
 
-.foto-galeria {
-    display: inline-block !important;
-    width: 30% !important; /* Ajusta el tamaño para que queden las 3 en línea */
-    min-width: 140px;      /* Evita que se hagan diminutas en celular */
-    margin: 0 5px !important;
-    border-radius: 6px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    vertical-align: middle;
+/* Tarjeta de cada producto */
+.product-card {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* 3. BOTÓN DE CONTACTO PREMIUM */
-.btn-whatsapp-container {
-    max-width: 400px;
-    margin: 30px auto;
-    padding: 0 15px;
+/* Efecto Hover en el producto */
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 12px 25px rgba(197, 160, 89, 0.35);
+}
+
+/* Contenedor de la imagen del producto */
+.product-image-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Detalles del producto (Texto) */
+.product-info {
+    padding: 20px 20px 10px 20px;
     text-align: center;
 }
 
-.btn-gold-filled {
+.product-category {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8c8c8c;
+    margin-bottom: 5px;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
+    color: #333333;
+}
+
+.product-price {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #C5A059;
+    margin-bottom: 15px;
+}
+
+/* ORGANIZAR BOTONES EN LÍNEAS HACIA ABAJO */
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 0 20px 20px 20px;
+    box-sizing: border-box;
+}
+
+/* ESTILOS DE LOS BOTONES PREMIUM */
+.btn-gold-filled, .btn-gold-outlined {
     display: block !important;
     width: 100%;
     box-sizing: border-box;
     text-align: center;
-    padding: 14px 20px;
+    padding: 10px 16px;
     border-radius: 4px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
-    background-color: #C5A059;
-    color: white !important;
-    border: 1px solid #C5A059;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
 }
 
+.btn-gold-filled {
+    background-color: #C5A059;
+    color: white !important;
+    border: 1px solid #C5A059;
+}
+
+/* EFECTO HOVER AMARILLO LUMINOSO (BOTÓN LLENO) */
 .btn-gold-filled:hover {
     background-color: #FFD700 !important;
     border-color: #FFD700 !important;
     color: #000000 !important;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+}
+
+.btn-gold-outlined {
+    border: 1px solid #C5A059;
+    color: #C5A059 !important;
+}
+
+/* EFECTO HOVER AMARILLO LUMINOSO (BOTÓN DELINEADO) */
+.btn-gold-outlined:hover {
+    background-color: rgba(255, 215, 0, 0.15) !important;
+    border-color: #FFD700 !important;
+    color: #E6B800 !important;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
 }
 
 .text-center {
@@ -205,16 +272,193 @@ h1, h3, .text-center {
 }
 </style>
 <hr>
-<div class="galeria-colores">
-<p><img src="imagenes/protector/IMG-1.jpg" class="foto-galeria img-fluid"> <img src="imagenes/protector/IMG-2.jpg" class="foto-galeria img-fluid"> <img src="imagenes/protector/IMG-3.jpg" class="foto-galeria img-fluid"></p>
+<div class="catalog-grid">
+<!-- 1. CELESTE -->
+<div class="product-card">
+<div class="product-info">
+<div class="product-category">
+<p>Colección Hogar</p>
+</div>
+<section id="azul-claro" class="level3">
+<h3 class="anchored" data-anchor-id="azul-claro">Azul claro</h3>
+<div class="product-price">
+
+</div>
+</section>
+</div>
+<div class="product-image-wrapper">
+<p><img src="imagenes/sabanas/dobles/IMG_AZUL_CLARO.png" class="product-image img-fluid"></p>
+</div>
+<div class="product-actions">
+<p><a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20la%20ropa%20de%20cama%20para%20Cama%20Sencilla" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+<!-- 2. AZULOSCURO -->
+<div class="product-card">
+<div class="product-info">
+<div class="product-category">
+<p>Colección Hogar</p>
+</div>
+<section id="azul-oscuro" class="level3">
+<h3 class="anchored" data-anchor-id="azul-oscuro">Azul oscuro</h3>
+<div class="product-price">
+
+</div>
+</section>
+</div>
+<div class="product-image-wrapper">
+<p><img src="imagenes/sabanas/dobles/AZUL_OSCURO.png" class="product-image img-fluid"></p>
+</div>
+<div class="product-actions">
+<p><a href="https://wa.me/573229428653?text=Hola,%20me%20interesan%20los%20diseños%20para%20Cama%20Doble" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+<!-- NEGRO -->
+<div class="product-card">
+<div class="product-info">
+<div class="product-category">
+<p>Colección Premium</p>
+</div>
+<section id="negro" class="level3">
+<h3 class="anchored" data-anchor-id="negro">Negro</h3>
+<div class="product-price">
+
+</div>
+</section>
+</div>
+<div class="product-image-wrapper">
+<p><img src="imagenes/sabanas/dobles/IMG_NEGRO.png" class="product-image img-fluid"></p>
+</div>
+<div class="product-actions">
+<p><a href="https://wa.me/573229428653?text=Hola,%20quiero%20más%20información%20sobre%20las%20opciones%20para%20Cama%20Queen" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+<!-- 4. GRIS OSCURO -->
+<div class="product-card">
+<div class="product-info">
+<div class="product-category">
+<p>Colección Premium</p>
+</div>
+<section id="gris-oscuro" class="level3">
+<h3 class="anchored" data-anchor-id="gris-oscuro">Gris Oscuro</h3>
+<div class="product-price">
+
+</div>
+</section>
+</div>
+<div class="product-image-wrapper">
+<p><img src="imagenes/sabanas/dobles/IMG_GRIS.png" class="product-image img-fluid"></p>
+</div>
+<div class="product-actions">
+<p><a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20catálogo%20exclusivo%20para%20Cama%20King" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+<!-- Beige -->
+<div class="product-card">
+<div class="product-info">
+<div class="product-category">
+<p>Colección Premium</p>
+</div>
+<section id="beige" class="level3">
+<h3 class="anchored" data-anchor-id="beige">Beige</h3>
+<div class="product-price">
+
+</div>
+</section>
+</div>
+<div class="product-image-wrapper">
+<p><img src="imagenes/sabanas/dobles/IMG_BEIGE.png" class="product-image img-fluid"></p>
+</div>
+<div class="product-actions">
+<p><a href="https://wa.me/573229428653?text=Hola,%20quiero%20más%20información%20sobre%20las%20opciones%20para%20Cama%20Queen" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+<!-- BLANCA -->
+<div class="product-card">
+<div class="product-info">
+<div class="product-category">
+<p>Colección Premium</p>
+</div>
+<section id="blanca" class="level3">
+<h3 class="anchored" data-anchor-id="blanca">BLANCA</h3>
+<div class="product-price">
+
+</div>
+</section>
+</div>
+<div class="product-image-wrapper">
+<p><img src="imagenes/sabanas/dobles/IMG_BLANCA.png" class="product-image img-fluid"></p>
+</div>
+<div class="product-actions">
+<p><a href="https://wa.me/573229428653?text=Hola,%20quiero%20más%20información%20sobre%20las%20opciones%20para%20Cama%20Queen" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+<!-- PURPURA -->
+<div class="product-card">
+<div class="product-info">
+<div class="product-category">
+<p>Colección Premium</p>
+</div>
+<section id="lila" class="level3">
+<h3 class="anchored" data-anchor-id="lila">Lila</h3>
+<div class="product-price">
+
+</div>
+</section>
+</div>
+<div class="product-image-wrapper">
+<p><img src="imagenes/sabanas/dobles/IMG_LILA.png" class="product-image img-fluid"></p>
+</div>
+<div class="product-actions">
+<p><a href="https://wa.me/573229428653?text=Hola,%20quiero%20más%20información%20sobre%20las%20opciones%20para%20Cama%20Queen" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+<!-- ROJO -->
+<div class="product-card">
+<div class="product-info">
+<div class="product-category">
+<p>Colección Premium</p>
+</div>
+<section id="rojo" class="level3">
+<h3 class="anchored" data-anchor-id="rojo">Rojo</h3>
+<div class="product-price">
+
+</div>
+</section>
+</div>
+<div class="product-image-wrapper">
+<p><img src="imagenes/sabanas/dobles/ROJO_VIVO.png" class="product-image img-fluid"></p>
+</div>
+<div class="product-actions">
+<p><a href="https://wa.me/573229428653?text=Hola,%20quiero%20más%20información%20sobre%20las%20opciones%20para%20Cama%20Queen" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+<!-- VERDE MENTA -->
+<div class="product-card">
+<div class="product-info">
+<div class="product-category">
+<p>Colección Premium</p>
+</div>
+<section id="verde-menta" class="level3">
+<h3 class="anchored" data-anchor-id="verde-menta">Verde Menta</h3>
+<div class="product-price">
+
+</div>
+</section>
+</div>
+<div class="product-image-wrapper">
+<p><img src="imagenes/sabanas/dobles/IMG_VERDE_MENTA.png" class="product-image img-fluid"></p>
+</div>
+<div class="product-actions">
+<p><a href="https://wa.me/573229428653?text=Hola,%20quiero%20más%20información%20sobre%20las%20opciones%20para%20Cama%20Queen" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
 </div>
 <hr>
-<section id="te-interesa-alguno-de-estos-tonos" class="level3 text-center">
-<h3 class="text-center anchored" data-anchor-id="te-interesa-alguno-de-estos-tonos">¿Te interesa alguno de estos tonos?</h3>
-<p>Escríbenos para consultar disponibilidad de tamaños y precios.</p>
-<div class="btn-whatsapp-container">
-<p><a href="https://wa.me/573229428653?text=Hola,%20vi%20los%20colores%20en%20el%20catálogo%20y%20quiero%20más%20información" class="btn-gold-filled">Preguntar por disponibilidad en WhatsApp</a></p>
-</div>
+<section id="buscas-algo-a-medida-o-un-diseño-personalizado" class="level3">
+<h3 class="anchored" data-anchor-id="buscas-algo-a-medida-o-un-diseño-personalizado">¿Buscas algo a medida o un diseño personalizado?</h3>
+<p>Si deseas dimensiones especiales o asesoría en la decoración de tus espacios, nuestro equipo está listo para ayudarte.</p>
+<p><a href="https://wa.me/573229428653?text=Hola,%20deseo%20asesoría%20personalizada" class="btn-gold-filled">Contactar a un Asesor</a></p>
 
 
 </section>
