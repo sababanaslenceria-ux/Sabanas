@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -128,12 +128,22 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Categorías</h2>
+   
+  <ul class="collapse">
+  <li><a href="#línea-dormitorio" id="toc-línea-dormitorio" class="nav-link active" data-scroll-target="#línea-dormitorio">Línea Dormitorio</a></li>
+  <li><a href="#línea-baño" id="toc-línea-baño" class="nav-link" data-scroll-target="#línea-baño">Línea Baño</a></li>
+  <li><a href="#asesoría-personalizada" id="toc-asesoría-personalizada" class="nav-link" data-scroll-target="#asesoría-personalizada">Asesoría Personalizada</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -142,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -163,12 +173,42 @@ h1, h2, h3, h4, h5, h6, .product-title {
     font-family: 'Playfair Display', Georgia, serif !important;
 }
 
+/* Títulos de Categorías en el cuerpo de la página */
+h2 {
+    color: #333333;
+    font-size: 1.8rem;
+    margin-top: 40px !important;
+    margin-bottom: 20px !important;
+    border-bottom: 2px solid #C5A059 !important; /* Línea dorada divisoria elegante */
+    padding-bottom: 10px;
+}
+
+/* 🛠️ DISEÑO NATIVO: CONTROL DE ESPACIO DE LA BARRA LATERAL DERECHA */
+@media (min-width: 992px) {
+    /* Forzamos a que el contenedor de Quarto respete las zonas nativas de la barra */
+    .page-columns.page-layout-full #quarto-content {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) 250px !important; /* Cuerpo a la izquierda, barra fija a la derecha */
+        gap: 50px !important; /* Separación perfecta y controlada */
+        max-width: 1300px !important; /* Ancho ideal para pantallas de laptops y monitores */
+        margin: 0 auto !important;
+    }
+
+    /* Reseteamos los estilos forzados anteriores para que Quarto tome el control limpio */
+    #quarto-margin-sidebar {
+        display: block !important;
+        position: sticky !important;
+        top: 110px !important;
+        width: 100% !important;
+    }
+}
+
 /* Contenedor principal del catálogo */
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    padding: 20px 0;
+    padding: 10px 0 30px 0;
 }
 
 /* Tarjeta de cada producto */
@@ -182,7 +222,7 @@ h1, h2, h3, h4, h5, h6, .product-title {
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Efecto Hover en el producto (igual al de tu Home) */
+/* Efecto Hover en el producto */
 .product-card:hover {
     transform: scale(1.03);
     box-shadow: 0px 12px 25px rgba(197, 160, 89, 0.35);
@@ -207,6 +247,13 @@ h1, h2, h3, h4, h5, h6, .product-title {
     text-align: center;
 }
 
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
+    color: #333333;
+}
+
 .product-category {
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -215,17 +262,10 @@ h1, h2, h3, h4, h5, h6, .product-title {
     margin-bottom: 5px;
 }
 
-.product-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 5px 0 10px 0;
-    color: #333333;
-}
-
 .product-price {
     font-size: 1.15rem;
     font-weight: bold;
-    color: #C5A059; /* Tu dorado característico */
+    color: #C5A059; 
     margin-bottom: 15px;
 }
 
@@ -238,37 +278,60 @@ h1, h2, h3, h4, h5, h6, .product-title {
 </style>
 <p>Explora nuestras líneas de lencería de hogar premium. Diseños confeccionados con los más altos estándares de calidad para brindarte una experiencia de suavidad y confort inigualable.</p>
 <hr>
+<section id="línea-dormitorio" class="level2">
+<h2 class="anchored" data-anchor-id="línea-dormitorio">Línea Dormitorio</h2>
 <div class="catalog-grid">
 <div class="product-card">
 <div class="product-image-wrapper">
-<p><img src="sabanas_satin.jpg" class="product-image img-fluid"></p>
+<p><a href="./sabanas.html"><img src="sabanas_satin.jpg" class="product-image img-fluid"></a></p>
 </div>
 <div class="product-info">
 <div class="product-category">
 <p>Dormitorio</p>
 </div>
-<section id="juego-de-sábanas-satín" class="level3">
-<h3 class="anchored" data-anchor-id="juego-de-sábanas-satín">Juego de Sábanas Satín</h3>
-<p>Disfruta de la suavidad del algodón egipcio con un acabado satinado brillante.</p>
+<div class="product-title">
+Juego de Sábanas Satín
+</div>
+<p>Lo mejor de los dos worlds: la frescura, pureza y alta durabilidad del algodón, combinadas con el acabado suave, sedoso y sutilmente brillante del satén. Una pieza de gama alta diseñada para transformar tu descanso en una experiencia de lujo diario.</p>
 <div class="product-price">
 
 </div>
 <div class="product-actions">
 <p><a href="./sabanas.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20Juego%20de%20Sábanas%20Satín" class="btn-gold-filled">Comprar</a></p>
 </div>
-</section>
 </div>
 </div>
 <div class="product-card">
 <div class="product-image-wrapper">
-<p><img src="protectordcolchonacolchado.jpg" class="product-image img-fluid"></p>
+<p><a href="./detalles-edredon.html"><img src="enredon.jpg" class="product-image img-fluid"></a></p>
 </div>
 <div class="product-info">
 <div class="product-category">
 <p>Dormitorio</p>
 </div>
-<section id="protector-de-colchón-térmico" class="level3">
-<h3 class="anchored" data-anchor-id="protector-de-colchón-térmico">Protector de Colchón Térmico</h3>
+<div class="product-title">
+Edredón Plumón Premium
+</div>
+<p>Diseñado para quienes buscan un descanso libre de interrupciones. Su relleno de microfibras de alta densidad actúa como un regulador térmico natural: mantiene el clima ideal en tu cama, evita la acumulación de humedad y permite que tu piel respire. Menos peso, más aislamiento y un sueño reparador de principio a fin.</p>
+<div class="product-price">
+
+</div>
+<div class="product-actions">
+<p><a href="./detalles-edredon.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20Edredón%20Plumón%20Premium" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+</div>
+<div class="product-card">
+<div class="product-image-wrapper">
+<p><a href="./protector.html"><img src="protectordcolchonacolchado.jpg" class="product-image img-fluid"></a></p>
+</div>
+<div class="product-info">
+<div class="product-category">
+<p>Dormitorio</p>
+</div>
+<div class="product-title">
+Protector de Colchón Acolchado
+</div>
 <p>Protección impermeable y acolchada que prolonga la vida de tu colchón sin perder suavidad.</p>
 <div class="product-price">
 
@@ -276,79 +339,19 @@ h1, h2, h3, h4, h5, h6, .product-title {
 <div class="product-actions">
 <p><a href="./protector.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20Protector%20de%20Colchón" class="btn-gold-filled">Comprar</a></p>
 </div>
-</section>
 </div>
 </div>
 <div class="product-card">
 <div class="product-image-wrapper">
-<p><img src="kit_toallas.jpg" class="product-image img-fluid"></p>
-</div>
-<div class="product-info">
-<div class="product-category">
-<p>Baño</p>
-</div>
-<section id="kit-de-toallas-de-lujo" class="level3">
-<h3 class="anchored" data-anchor-id="kit-de-toallas-de-lujo">Kit de Toallas de Lujo</h3>
-<p>Máxima absorción y suavidad texturizada para transformar tu baño en un spa.</p>
-<div class="product-price">
-
-</div>
-<div class="product-actions">
-<p><a href="./kit-toallas.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20Kit%20de%20Toallas%20de%20Lujo" class="btn-gold-filled">Comprar</a></p>
-</div>
-</section>
-</div>
-</div>
-<div class="product-card">
-<div class="product-image-wrapper">
-<p><img src="toalladealgodon.jpg" class="product-image img-fluid"></p>
-</div>
-<div class="product-info">
-<div class="product-category">
-<p>Baño</p>
-</div>
-<section id="toallas-de-algodón" class="level3">
-<h3 class="anchored" data-anchor-id="toallas-de-algodón">Toallas de Algodón</h3>
-<p>Variedad de tamaños confeccionados en una selecta mezcla de algodón y poliéster de alta durabilidad.</p>
-<div class="product-price">
-
-</div>
-<div class="product-actions">
-<p><a href="./tipotoallas.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20las%20Toallas%20de%20Algodón" class="btn-gold-filled">Comprar</a></p>
-</div>
-</section>
-</div>
-</div>
-<div class="product-card">
-<div class="product-image-wrapper">
-<p><img src="toallonesdecuerpoentero.jpg" class="product-image img-fluid"></p>
-</div>
-<div class="product-info">
-<div class="product-category">
-<p>Baño</p>
-</div>
-<section id="toallones-de-cuerpo-entero" class="level3">
-<h3 class="anchored" data-anchor-id="toallones-de-cuerpo-entero">Toallones de Cuerpo Entero</h3>
-<p>Envuélvete en la máxima comodidad con toallones de gran formato y secado ultra rápido.</p>
-<div class="product-price">
-
-</div>
-<div class="product-actions">
-<p><a href="./colortoallon.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20los%20Toallones%20de%20Cuerpo%20Entero" class="btn-gold-filled">Comprar</a></p>
-</div>
-</section>
-</div>
-</div>
-<div class="product-card">
-<div class="product-image-wrapper">
-<p><img src="velosdecortinaelegante.jpg" class="product-image img-fluid"></p>
+<p><a href="./velos.html"><img src="velosdecortinaelegante.jpg" class="product-image img-fluid"></a></p>
 </div>
 <div class="product-info">
 <div class="product-category">
 <p>Dormitorio</p>
 </div>
-<section id="velos-de-cortina-elegantes" class="level3">
-<h3 class="anchored" data-anchor-id="velos-de-cortina-elegantes">Velos de Cortina Elegantes</h3>
+<div class="product-title">
+Velos de Cortina Elegantes
+</div>
 <p>Añade un toque de calidez y privacidad a tus espacios permitiendo una entrada de luz perfecta.</p>
 <div class="product-price">
 
@@ -356,19 +359,19 @@ h1, h2, h3, h4, h5, h6, .product-title {
 <div class="product-actions">
 <p><a href="./velos.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20los%20Velos%20de%20Cortina" class="btn-gold-filled">Comprar</a></p>
 </div>
-</section>
 </div>
 </div>
 <div class="product-card">
 <div class="product-image-wrapper">
-<p><img src="colchaespanola.jpg" class="product-image img-fluid"></p>
+<p><a href="./colchasespanolas.html"><img src="colchaespanola.jpg" class="product-image img-fluid"></a></p>
 </div>
 <div class="product-info">
 <div class="product-category">
 <p>Dormitorio</p>
 </div>
-<section id="colchas-españolas" class="level3">
-<h3 class="anchored" data-anchor-id="colchas-españolas">Colchas Españolas</h3>
+<div class="product-title">
+Colchas Españolas
+</div>
 <p>Diseños sofisticados y texturas clásicas que visten tu cama con el auténtico estilo europeo.</p>
 <div class="product-price">
 
@@ -376,19 +379,19 @@ h1, h2, h3, h4, h5, h6, .product-title {
 <div class="product-actions">
 <p><a href="./colchasespanolas.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20las%20Colchas%20Españolas" class="btn-gold-filled">Comprar</a></p>
 </div>
-</section>
 </div>
 </div>
 <div class="product-card">
 <div class="product-image-wrapper">
-<p><img src="cobijastermicas.jpg" class="product-image img-fluid"></p>
+<p><a href="./cobijas.html"><img src="cobijastermicas.jpg" class="product-image img-fluid"></a></p>
 </div>
 <div class="product-info">
 <div class="product-category">
 <p>Dormitorio</p>
 </div>
-<section id="cobijas-térmicas-extra-suaves" class="level3">
-<h3 class="anchored" data-anchor-id="cobijas-térmicas-extra-suaves">Cobijas Térmicas Extra Suaves</h3>
+<div class="product-title">
+Cobijas Térmicas Extra Suaves
+</div>
 <p>Textura térmica ultra abrigada, ideal para tardes de descanso y noches frías.</p>
 <div class="product-price">
 
@@ -396,39 +399,19 @@ h1, h2, h3, h4, h5, h6, .product-title {
 <div class="product-actions">
 <p><a href="./cobijas.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20las%20Cobijas%20Térmicas" class="btn-gold-filled">Comprar</a></p>
 </div>
-</section>
 </div>
 </div>
 <div class="product-card">
 <div class="product-image-wrapper">
-<p><img src="enredon.jpg" class="product-image img-fluid"></p>
+<p><a href="./almohadas.html"><img src="almohadas.jpg" class="product-image img-fluid"></a></p>
 </div>
 <div class="product-info">
 <div class="product-category">
 <p>Dormitorio</p>
 </div>
-<section id="edredón-plumón-premium" class="level3">
-<h3 class="anchored" data-anchor-id="edredón-plumón-premium">Edredón Plumón Premium</h3>
-<p>El equilibrio perfecto entre ligereza y el abrigo ideal para tus noches.</p>
-<div class="product-price">
-
+<div class="product-title">
+Almohadas Ergonómicas Premium
 </div>
-<div class="product-actions">
-<p><a href="" class="btn-gold-outlined">Disponible Próximamente</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20Edredón%20Plumón%20Premium" class="btn-gold-filled">Próximamente</a></p>
-</div>
-</section>
-</div>
-</div>
-<div class="product-card">
-<div class="product-image-wrapper">
-<p><img src="almohadas.jpg" class="product-image img-fluid"></p>
-</div>
-<div class="product-info">
-<div class="product-category">
-<p>Dormitorio</p>
-</div>
-<section id="almohadas-ergonómicas-premium" class="level3">
-<h3 class="anchored" data-anchor-id="almohadas-ergonómicas-premium">Almohadas Ergonómicas Premium</h3>
 <p>Soporte ideal para cuello y cabeza que garantiza un descanso reparador y libre de estrés.</p>
 <div class="product-price">
 
@@ -436,13 +419,79 @@ h1, h2, h3, h4, h5, h6, .product-title {
 <div class="product-actions">
 <p><a href="" class="btn-gold-outlined">Disponible Próximamente</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20las%20Almohadas%20Premium" class="btn-gold-filled">Próximamente</a></p>
 </div>
-</section>
 </div>
 </div>
 </div>
 <hr>
-<section id="buscas-algo-a-medida-o-un-diseño-personalizado" class="level3">
-<h3 class="anchored" data-anchor-id="buscas-algo-a-medida-o-un-diseño-personalizado">¿Buscas algo a medida o un diseño personalizado?</h3>
+</section>
+<section id="línea-baño" class="level2">
+<h2 class="anchored" data-anchor-id="línea-baño">Línea Baño</h2>
+<div class="catalog-grid">
+<div class="product-card">
+<div class="product-image-wrapper">
+<p><a href="./kit-toallas.html"><img src="kit_toallas.jpg" class="product-image img-fluid"></a></p>
+</div>
+<div class="product-info">
+<div class="product-category">
+<p>Baño</p>
+</div>
+<div class="product-title">
+Kit de Toallas de Lujo
+</div>
+<p>Máxima absorción y suavidad texturizada para transformar tu baño en un spa.</p>
+<div class="product-price">
+
+</div>
+<div class="product-actions">
+<p><a href="./kit-toallas.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20el%20Kit%20de%20Toallas%20de%20Lujo" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+</div>
+<div class="product-card">
+<div class="product-image-wrapper">
+<p><a href="./tipotoallas.html"><img src="toalladealgodon.jpg" class="product-image img-fluid"></a></p>
+</div>
+<div class="product-info">
+<div class="product-category">
+<p>Baño</p>
+</div>
+<div class="product-title">
+Toallas de Algodón Premium
+</div>
+<p>Variedad de tamaños confeccionados en una selecta mezcla de algodón y poliéster de alta durabilidad.</p>
+<div class="product-price">
+
+</div>
+<div class="product-actions">
+<p><a href="./tipotoallas.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20las%20Toallas%20de%20Algodón" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+</div>
+<div class="product-card">
+<div class="product-image-wrapper">
+<p><a href="./toallones.html"><img src="toallonesdecuerpoentero.jpg" class="product-image img-fluid"></a></p>
+</div>
+<div class="product-info">
+<div class="product-category">
+<p>Baño</p>
+</div>
+<div class="product-title">
+Toallones de Cuerpo Entero
+</div>
+<p>Envuélvete en la máxima comodidad con toallones de gran formato y secado ultra rápido.</p>
+<div class="product-price">
+
+</div>
+<div class="product-actions">
+<p><a href="./toallones.html" class="btn-gold-outlined">Ver Detalles</a> <a href="https://wa.me/573229428653?text=Hola,%20me%20interesa%20los%20Toallones%20de%20Cuerpo%20Entero" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="asesoría-personalizada" class="level2">
+<h2 class="anchored" data-anchor-id="asesoría-personalizada">Asesoría Personalizada</h2>
 <p>Si deseas dimensiones especiales o asesoría en la decoración de tus espacios, nuestro equipo está listo para ayudarte.</p>
 <p><a href="https://wa.me/573000000000" class="btn-gold-filled">Contactar a un Asesor</a></p>
 
