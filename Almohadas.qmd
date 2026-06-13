@@ -1,0 +1,19 @@
+---
+title: ""
+---
+
+::: hero-container
+::: hero-left
+# El Descanso Perfecto Comienza en tu Almohada
+
+Descubre nuestra exclusiva colección de almohadas premium. Diseñadas con tecnología ergonómica y materiales de lujo para brindarte el soporte ideal y una frescura inigualable cada noche.
+
+::: hero-buttons
+[Ver Colección](almohadas.qmd){.btn-gold-filled} [Contáctanos](https://wa.me/573000000000){.btn-gold-outlined}
+:::
+:::
+
+::: hero-right
+![](hero-almohadas.jpg){.hero-image}
+:::
+:::
