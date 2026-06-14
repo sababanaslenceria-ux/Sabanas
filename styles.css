@@ -30,20 +30,28 @@ main.content {
   padding: 40px 20px !important;
 }
 
-/* MENÚ SUPERIOR */
+/* MENÚ SUPERIOR (CORREGIDO Y ESPACIADO) */
 .navbar {
   border-bottom: 1px solid #F5EFE6 !important;
-  padding: 15px 0;
+  padding: 25px 0 !important;
 }
 .navbar-title {
   font-family: 'Playfair Display', serif !important;
   font-weight: 600 !important;
   letter-spacing: 2px;
   color: #04291B !important;
+  white-space: nowrap !important;
+  margin-right: 30px !important;
+}
+.navbar-nav {
+  gap: 15px;
 }
 .navbar-nav .nav-link {
   font-weight: 500;
   color: #574F46 !important;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
 }
 .navbar-nav .nav-link:hover {
   color: #EFBF04 !important;
@@ -75,7 +83,6 @@ main.content {
   margin-bottom: 25px;
   letter-spacing: -0.5px;
 }
-
 .hero-left p {
   font-size: 1.1rem;
   line-height: 1.7;
@@ -90,7 +97,6 @@ main.content {
   gap: 15px;
   flex-wrap: wrap;
 }
-
 .btn-gold-filled {
   display: inline-block;
   background-color: #EFBF04 !important;
@@ -106,7 +112,6 @@ main.content {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(239, 191, 4, 0.35);
 }
-
 .btn-gold-outlined {
   display: inline-block;
   background-color: transparent !important;
@@ -138,7 +143,11 @@ main.content {
   object-fit: cover;
 }
 
-/* Contenedor flotante en el costado derecho */
+/* ==========================================================================
+   NUEVO ESTILO ELEGANTE E INDEPENDIENTE PARA BOTONES FLOTANTES
+   ========================================================================== */
+
+/* Contenedor flotante general */
 .redes-flotantes {
   position: fixed !important;
   display: flex !important;
@@ -148,52 +157,6 @@ main.content {
   z-index: 99999 !important;
   flex-direction: column;
 }
-
-/* Estilo general para cada botón */
-.btn-red {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 12px 15px;
-  color: white !important;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 5px 0 0 5px;
-  margin-bottom: 5px;
-  width: 50px;
-  transition: width 0.3s ease, background-color 0.3s ease;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.btn-red i {
-  font-size: 20px;
-  min-width: 30px;
-}
-
-.btn-red span {
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  margin-left: 5px;
-}
-
-.btn-red:hover {
-  width: 180px;
-}
-
-.btn-red:hover span {
-  opacity: 1;
-}
-
-/* ==========================================================================
-   NUEVO ESTILO ELEGANTE PARA BOTONES FLOTANTES
-   ========================================================================== */
-
-/* ==========================================================================
-   NUEVO ESTILO ELEGANTE E INDEPENDIENTE PARA BOTONES FLOTANTES
-   ========================================================================== */
 
 /* 1. Estado inicial: Todos los botones nacen con fondo cafecito claro y letras oscuras */
 .btn-red {
@@ -238,7 +201,6 @@ main.content {
 .btn-red:hover span, .btn-red:active span {
   opacity: 1; /* El texto de ese botón se vuelve visible */
 }
-
 
 /* 3. CAMBIOS DE COLOR INDIVIDUALES AL PASAR EL CURSOR (HOVER) */
 
