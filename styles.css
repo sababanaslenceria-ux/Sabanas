@@ -30,29 +30,43 @@ main.content {
   padding: 40px 20px !important;
 }
 
-/* MENÚ SUPERIOR (CORREGIDO Y ESPACIADO) */
+/* ==========================================================================
+   MENÚ SUPERIOR (ARREGLADO PARA QUE NO SE ROMPA EN J...)
+   ========================================================================== */
 .navbar {
   border-bottom: 1px solid #F5EFE6 !important;
-  padding: 25px 0 !important;
+  padding: 20px 0 !important; /* Espaciado elegante arriba y abajo */
 }
+
+/* Evita que el título se encoja o se rompa */
 .navbar-title {
   font-family: 'Playfair Display', serif !important;
   font-weight: 600 !important;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px !important;
   color: #04291B !important;
-  white-space: nowrap !important;
-  margin-right: 30px !important;
+  white-space: nowrap !important; /* Obliga a mostrar "JA LENCERÍA" completo */
+  min-width: 160px !important;    /* Le asegura su propio espacio en la izquierda */
+  display: inline-block !important;
+  margin-right: 20px !important;
 }
+
+/* Controla el contenedor de los enlaces (Inicio, Sábanas, etc.) */
 .navbar-nav {
-  gap: 15px;
+  display: flex !important;
+  gap: 12px !important; /* Espaciado prudente para que todo quepa en una sola línea */
+  align-items: center !important;
 }
+
+/* Ajuste sutil a los botones del menú para darles "aire" sin saturar */
 .navbar-nav .nav-link {
-  font-weight: 500;
+  font-weight: 500 !important;
   color: #574F46 !important;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
+  text-transform: uppercase !important;
+  font-size: 0.8rem !important; /* Ajuste milimétrico de tamaño para que respire bien */
+  letter-spacing: 0.5px !important;
+  padding: 5px 8px !important;
 }
+
 .navbar-nav .nav-link:hover {
   color: #EFBF04 !important;
 }
@@ -173,7 +187,7 @@ main.content {
   /* TAMAÑO FIJO E INMUTABLE */
   width: 50px !important; 
   height: 50px !important;
-  transition: background-color 0.3s ease, color 0.3s ease !important; /* Solo suaviza el cambio de color */
+  transition: background-color 0.3s ease, color 0.3s ease !important; /* Suaviza el cambio de color */
   overflow: hidden;
 }
 
