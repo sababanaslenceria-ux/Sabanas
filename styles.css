@@ -144,7 +144,7 @@ main.content {
 }
 
 /* ==========================================================================
-   NUEVO ESTILO ELEGANTE E INDEPENDIENTE PARA BOTONES FLOTANTES
+   NUEVO ESTILO SOBRIO: CAMBIO DE COLOR SIN DESPLIEGUE
    ========================================================================== */
 
 /* Contenedor flotante general */
@@ -158,51 +158,37 @@ main.content {
   flex-direction: column;
 }
 
-/* 1. Estado inicial: Todos los botones nacen con fondo cafecito claro y letras oscuras */
+/* 1. Estado inicial: Botones cuadrados fijos (cafecito claro) */
 .btn-red {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 12px 15px;
-  background-color: #E6DCD2 !important; /* El cafecito/arena claro muy lencero */
-  color: #4A3E3D !important;            /* Icono y texto en café oscuro */
-  text-decoration: none;
-  font-family: sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 5px 0 0 5px;
-  margin-bottom: 5px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important; /* CENTRA EL ICONO PERFECTAMENTE */
+  padding: 12px 0 !important;        /* Ajustamos padding para mantener simetría */
+  background-color: #E6DCD2 !important; /* El cafecito/arena claro lencero */
+  color: #4A3E3D !important;            /* Icono en café oscuro */
+  text-decoration: none !important;
+  border-radius: 8px 0 0 8px;          /* Bordes redondeados elegantemente a la izquierda */
+  margin-bottom: 6px;
   
-  /* ESTADO INICIAL RECOGIDO: Cada botón mide 50px */
-  width: 50px; 
-  transition: width 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  /* TAMAÑO FIJO E INMUTABLE */
+  width: 50px !important; 
+  height: 50px !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important; /* Solo suaviza el cambio de color */
   overflow: hidden;
-  white-space: nowrap;
 }
 
 /* Iconos dentro del botón */
 .btn-red i {
-  font-size: 20px;
-  min-width: 30px;
+  font-size: 22px !important; /* Un toque más grandecitos para que luzcan centrados */
+  display: inline-block;
 }
 
-/* Texto oculto inicialmente */
+/* ELIMINAMOS EL TEXTO PARA QUE NUNCA SE DESPLIEGUE */
 .btn-red span {
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  margin-left: 5px;
+  display: none !important; /* Oculta el texto por completo siempre */
 }
 
-/* 2. EFECTO INDEPENDIENTE: Solo se estira y muestra el texto del botón que tocas */
-.btn-red:hover, .btn-red:active {
-  width: 180px; /* Al pasar el mouse, el botón individual se estira */
-}
-
-.btn-red:hover span, .btn-red:active span {
-  opacity: 1; /* El texto de ese botón se vuelve visible */
-}
-
-/* 3. CAMBIOS DE COLOR INDIVIDUALES AL PASAR EL CURSOR (HOVER) */
+/* 2. CAMBIOS DE COLOR INDIVIDUALES AL PASAR EL CURSOR (HOVER) */
 
 /* WhatsApp: Vuelve a su verde original */
 .btn-whatsapp:hover, .btn-whatsapp:active { 
