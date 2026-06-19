@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>blackout – JA Lencería</title>
+<title>Escoge el Color de tú Blackout – JA Lencería</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -295,23 +295,23 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">blackout</h1>
+<h1 class="title">Escoge el Color de tú Blackout</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -323,6 +323,142 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<style>
+/* 1. IMPORTAR LA FUENTE DE GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* 2. APLICAR LA FUENTE A TODOS LOS TÍTULOS */
+h1, h2, h3, h4, h5, h6, .product-title {
+    font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+/* Títulos de Categorías en el cuerpo de la página */
+h2 {
+    color: #333333;
+    font-size: 1.8rem;
+    margin-top: 40px !important;
+    margin-bottom: 20px !important;
+    border-bottom: 2px solid #C5A059 !important; /* Línea dorada divisoria elegante */
+    padding-bottom: 10px;
+}
+
+/* 🛠️ DISEÑO NATIVO: CONTROL DE ESPACIO DE LA BARRA LATERAL DERECHA */
+@media (min-width: 992px) {
+    /* Forzamos a que el contenedor de Quarto respete las zonas nativas de la barra */
+    .page-columns.page-layout-full #quarto-content {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) 250px !important; /* Cuerpo a la izquierda, barra fija a la derecha */
+        gap: 50px !important; /* Separación perfecta y controlada */
+        max-width: 1300px !important; /* Ancho ideal para pantallas de laptops y monitores */
+        margin: 0 auto !important;
+    }
+
+    /* Reseteamos los estilos forzados anteriores para que Quarto tome el control limpio */
+    #quarto-margin-sidebar {
+        display: block !important;
+        position: sticky !important;
+        top: 110px !important;
+        width: 100% !important;
+    }
+}
+
+/* Contenedor principal del catálogo */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 10px 0 30px 0;
+}
+
+/* Tarjeta de cada producto */
+.product-card {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Efecto Hover en el producto */
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 12px 25px rgba(197, 160, 89, 0.35);
+}
+
+/* Contenedor de la imagen del producto */
+.product-image-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Detalles del producto (Texto) */
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
+    color: #333333;
+}
+
+.product-category {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8c8c8c;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #C5A059; 
+    margin-bottom: 15px;
+}
+
+/* Centrar los botones del catálogo */
+.product-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+</style>
+<hr>
+<div class="catalog-grid">
+<div class="product-card">
+<div class="product-image-wrapper">
+<p><img src="imagenes/blackout/IMG_1.jpg" class="product-image img-fluid"></p>
+</div>
+<div class="product-info">
+<div class="product-category">
+<p>Dormitorio</p>
+</div>
+<div class="product-title">
+Tecnología Antiluz
+</div>
+<p>Blackout</p>
+<div class="product-price">
+
+</div>
+<div class="product-actions">
+<p><a href="https://wa.me/573229428653?text=Buenos%20dias,%20me%20interesa%20el%20Blackout%20color" class="btn-gold-filled">Comprar</a></p>
+</div>
+</div>
+</div>
+</div>
+<p>:::</p>
 
 
 
